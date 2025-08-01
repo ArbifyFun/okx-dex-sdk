@@ -1,5 +1,5 @@
 {
-  "name": "@arvin/okx-dex/okx-dex-sdk",
+  "name": "@arvin/okx-dex-sdk",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,7 @@
     "test": "jest",
     "test:coverage": "jest --coverage",
     "clean": "rm -rf dist",
-    "prepare": "npm run clean && npm run build",
+    "prepare": "pnpm run clean && pnpm run build",
     "example:evm-quote": "npx ts-node src/okx/examples/evm/evm-quote.ts",
     "example:evm-swap": "npx ts-node src/okx/examples/evm/evm-swap.ts",
     "example:evm-approve": "npx ts-node src/okx/examples/evm/evm-approve.ts",
@@ -52,6 +52,7 @@
     "crypto-js": "^4.2.0",
     "dotenv": "^16.5.0",
     "ethers": "^6.14.3",
+    "tweetnacl": "^1.0.3",
     "typescript": "^5.8.3",
     "valibot": "^1.1.0",
     "web3": "^4.16.0"
