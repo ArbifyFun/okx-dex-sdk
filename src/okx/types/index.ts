@@ -101,11 +101,59 @@ export interface TokenData {
     tokenName: string;
     tokenSymbol: string;
 }
+export interface TokenPriceData {
+    chainIndex: string;
+    tokenContractAddress: string;
+    price: string;
+    time:string;
+}
+export interface TokenPriceInfo {
+  /** 链的唯一标识符，例如：1 表示以太坊 */
+  chainIndex: string;
+
+  /** 代币合约地址，例如：0x382bb369d343125bfb2117af9c149795c6c65c50 */
+  tokenContractAddress: string;
+
+  /** 价格时间戳，Unix 毫秒时间戳格式 */
+  time: string;
+
+  /** 最新代币价格 */
+  price: string;
+
+  /** 代币市值 */
+  marketCap: string;
+
+  /** 5 分钟内价格变动（百分比） */
+  priceChange5M: string;
+
+  /** 1 小时内价格变动（百分比） */
+  priceChange1H: string;
+
+  /** 4 小时内价格变动（百分比） */
+  priceChange4H: string;
+
+  /** 24 小时内价格变动（百分比） */
+  priceChange24H: string;
+
+  /** 5 分钟内交易量 */
+  volume5M: string;
+
+  /** 1 小时内交易量 */
+  volume1H: string;
+
+  /** 4 小时内交易量 */
+  volume4H: string;
+
+  /** 24 小时内交易量 */
+  volume24H: string;
+};
+
 
 export interface ChainData {
     chainId: string;
     chainName: string;
     dexTokenApproveAddress: string | null;
+    chainSymbol?: string;
 }
 
 // New interface specifically for swap responses

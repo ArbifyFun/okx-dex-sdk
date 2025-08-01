@@ -1,6 +1,8 @@
 // src/api/dex.ts
 import { HTTPClient } from "../core/http-client";
 import {
+    TokenPriceData,
+    TokenPriceInfo,
     SwapParams,
     OKXConfig,
     QuoteParams,
@@ -339,7 +341,30 @@ export class DexAPI {
             this.toAPIParams({ chainId })
         );
     }
+  async getMarketChainData(chainId: string): Promise<APIResponse<ChainData>> {
+    return this.client.request(
+      "GET",
+      "/api/v5/dex/market/supported/chain",
+      this.toAPIParams({ chainId })
+    );
+  }
+  async getTokenPrice(chainId: string): Promise<APIResponse<TokenPriceData>> {
+    return this.client.request(
+      "GET",
+      "/api/v5/dex/market/price",
+      this.toAPIParams({ chainId })
+    );
+  }
 
+  async getTokenPriceInfo(
+    chainId: string
+  ): Promise<APIResponse<TokenPriceInfo[]>> {
+    return this.client.request(
+      "GET",
+      "/api/v5/dex/market/price-info",
+      this.toAPIParams({ chainId })
+    );
+  }
     async executeSwap(params: SwapParams): Promise<SwapResult> {
         const swapData = await this.getSwapData(params);
         const networkConfig = this.getNetworkConfig(params.chainId);
